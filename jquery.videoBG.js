@@ -26,6 +26,7 @@
 		var container = $(this);
 
 		options.iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+		options.windowsPhone = /Windows Phone/i.test( navigator.userAgent);
 
 		// check if elements available otherwise it will cause issues
 		if (!container.length)
@@ -209,7 +210,7 @@
 
 
 		// if supports video
-		if ($.fn.videoBG.supportsVideo() && !options.iOS) {
+		if ($.fn.videoBG.supportsVideo() && !options.iOS && !options.windowsPhone ) {
 		  	// supports mp4
 		  	if ($.fn.videoBG.supportType('mp4')) {
 
@@ -248,7 +249,7 @@
 
 		// add the image to the video
 		// if suuports video
-		if ($.fn.videoBG.supportsVideo() && !options.iOS) {
+		if ($.fn.videoBG.supportsVideo() && !options.iOS && !options.windowsPhone ) {
 			// add the video to the wrapper
 			$div.html($video);
 		}
